@@ -1,0 +1,22 @@
+{
+  "name": "async-utils",
+  "version": "1.0.0",
+  "description": "fully async implementations of common utility functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://source.heropunch.io/xj9/async-utils"
+  },
+  "keywords": [
+    "async"
+  ],
+  "author": "xj9@heropunch.io",
+  "license": "LGPL-3.0",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "q": "^1.5.0"
+  }
+}
