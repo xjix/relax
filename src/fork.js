@@ -19,8 +19,9 @@ const exec = async (predicate, fn, rest) => {
  * as the argument for the next
  *
  * @param {any} predicate
- * @param {function[]} fns
+ * @param {Array<function(value)>} fns
  * @return {any}
+ * @async
  * @alias module:fork
  */
 const fork = async (predicate, fns = []) => {

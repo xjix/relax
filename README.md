@@ -42,7 +42,7 @@ as the argument for the next
 | Param | Type |
 | --- | --- |
 | predicate | <code>any</code> | 
-| fns | <code>Array.&lt;function()&gt;</code> | 
+| fns | <code>Array.&lt;function(value)&gt;</code> | 
 
 <a name="module_to"></a>
 
