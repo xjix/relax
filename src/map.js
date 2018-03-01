@@ -1,13 +1,7 @@
-import map from 'lodash/map'
-
-export default (collection, fn) => {
-  return Promise.all(map(collection, (item) => new Promise((resolve, reject) => {
-    setTimeout(() => {
-      try {
-        resolve(fn(item))
-      } catch (e) {
-        reject(e)
-      }
-    }, 0)
-  })))
+export default async (collection, fn) => {
+  const ps = collection.map(async (value) => {
+    const result = await fn(value)
+    return result
+  })
+  return Promise.all(ps)
 }
