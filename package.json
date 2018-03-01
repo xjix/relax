@@ -20,7 +20,7 @@
     "async"
   ],
   "author": "xj9@infinite.ai",
-  "license": "LGPL-3.0",
+  "license": "WTFPL",
   "dependencies": {
     "lodash": "^4.17.4"
   },
