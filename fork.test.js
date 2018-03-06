@@ -1,5 +1,6 @@
 /* global describe, test, expect */
 
+import range from 'lodash/range'
 import fork from './fork'
 
 describe('async-utils/fork', async () => {
@@ -30,5 +31,11 @@ describe('async-utils/fork', async () => {
     } catch (e) {
       expect(e).toMatchObject({message: 'something broke dog'})
     }
+  })
+
+  test('works with large chains of operations', async () => {
+    expect.assertions(1)
+    const result = await fork(1, range(1, 100000).map(() => async (n) => n + 1))
+    expect(result).toEqual(100000)
   })
 })

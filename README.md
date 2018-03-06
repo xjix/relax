@@ -20,7 +20,7 @@ useful tools to work *with* the event loop rather than against it.
 ## Functions
 
 <dl>
-<dt><a href="#exp_module_fork--fork">fork(predicate, fns)</a> ⇒ <code>any</code> ⏏</dt>
+<dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>any</code> ⏏</dt>
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
 </dd>
@@ -33,7 +33,7 @@ as the argument for the next</p>
 ## fork
 <a name="exp_module_fork--fork"></a>
 
-### fork(predicate, fns) ⇒ <code>any</code> ⏏
+### fork(fns, predicate) ⇒ <code>any</code> ⏏
 execute a chain of async operations using the return value of each function
 as the argument for the next
 
@@ -41,8 +41,8 @@ as the argument for the next
 
 | Param | Type |
 | --- | --- |
-| predicate | <code>any</code> | 
 | fns | <code>Array.&lt;function(value)&gt;</code> | 
+| predicate | <code>any</code> | 
 
 <a name="module_to"></a>
 

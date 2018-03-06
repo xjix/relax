@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build:doc": "jsdoc2md --template README.hbs --files src/*.js > README.md"
+    "build:doc": "jsdoc2md --template README.hbs --files *.js > README.md"
   },
   "babel": {
     "presets": [
@@ -21,10 +21,8 @@
   ],
   "author": "xj9@infinite.ai",
   "license": "WTFPL",
-  "dependencies": {
-    "lodash": "^4.17.4"
-  },
   "devDependencies": {
+    "lodash": "^4.17.4",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.1",
     "babel-preset-env": "^1.6.1",
