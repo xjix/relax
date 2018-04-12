@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://source.heropunch.io/xj9/async-utils"
+    "url": "https://source.heropunch.io/r14c/async-utils"
   },
   "keywords": [
     "async"
   ],
-  "author": "xj9@infinite.ai",
-  "license": "WTFPL",
+  "author": "r14c@infinite.ai",
+  "license": "Unlicense",
   "devDependencies": {
     "lodash": "^4.17.4",
     "babel-core": "^6.26.0",
