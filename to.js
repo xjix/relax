@@ -5,10 +5,12 @@
  * @async
  */
 const to = (promise) => {
-  return promise.then((data) => [null, data]).catch((err) => [err, undefined])
+  return promise
+    .then((data) => [null, data])
+    .catch((err) => [err, undefined])
 }
 
 /**
  * @module to
  */
-export default to
+module.exports = to

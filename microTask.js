@@ -16,4 +16,4 @@ const microTask = (fn) => Promise.resolve().then(() => new Promise((resolve, rej
 /**
  * @module microTask
  */
-export default microTask
+module.exports = microTask

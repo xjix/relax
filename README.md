@@ -13,6 +13,8 @@ useful tools to work *with* the event loop rather than against it.
 <dl>
 <dt><a href="#module_fork">fork</a></dt>
 <dd></dd>
+<dt><a href="#module_microTask">microTask</a></dt>
+<dd></dd>
 <dt><a href="#module_to">to</a></dt>
 <dd></dd>
 </dl>
@@ -23,6 +25,9 @@ useful tools to work *with* the event loop rather than against it.
 <dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>any</code> ⏏</dt>
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
+</dd>
+<dt><a href="#exp_module_microTask--microTask">microTask(fn)</a> ⏏</dt>
+<dd><p>schedule a task to run on nextTick</p>
 </dd>
 <dt><a href="#exp_module_to--to">to(promise)</a> ⇒ <code>Promise</code> ⏏</dt>
 <dd></dd>
@@ -43,6 +48,20 @@ as the argument for the next
 | --- | --- |
 | fns | <code>Array.&lt;function(value)&gt;</code> | 
 | predicate | <code>any</code> | 
+
+<a name="module_microTask"></a>
+
+## microTask
+<a name="exp_module_microTask--microTask"></a>
+
+### microTask(fn) ⏏
+schedule a task to run on nextTick
+
+**Kind**: global method of [<code>microTask</code>](#module_microTask)  
+
+| Param | Type |
+| --- | --- |
+| fn | <code>function</code> | 
 
 <a name="module_to"></a>
 

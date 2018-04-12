@@ -1,18 +1,17 @@
-import to from './to'
+const microTask = require('./microTask')
 
-const spawn = async (predicate, fn, rest) => {
-  const [err, result] = await to(fn(predicate))
-  if (err) {
-    throw err
-  } else {
+const spawn = (predicate, fn, rest) => microTask(() => fn(predicate))
+  .then((result) => {
     if (rest.length === 0) {
       return result
     } else {
       const next = rest.pop()
       return spawn(result, next, rest)
     }
-  }
-}
+  })
+  .catch((err) => {
+    throw err
+  })
 
 /**
  * execute a chain of async operations using the return value of each function
@@ -24,16 +23,17 @@ const spawn = async (predicate, fn, rest) => {
  * @param {any} predicate
  * @return {any}
  */
-const fork = async (predicate, fns = []) => {
-  const [err, result] = await to(spawn(predicate, fns[0], fns.slice(1).reverse()))
-  if (err) {
+const fork = (predicate, fns = []) => spawn(
+  predicate,
+  fns[0],
+  fns.slice(1).reverse()
+)
+  .catch((err) => {
     throw err
-  } else {
-    return result
-  }
-}
+  })
+
 
 /**
  * @module fork
  */
-export default fork
+module.exports = fork
