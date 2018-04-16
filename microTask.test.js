@@ -1,6 +1,6 @@
 /* global describe, test, expect */
 
-import microTask from './microTask'
+const microTask = require('./microTask')
 
 describe('microTask', () => {
   test('execute a task', () => {
