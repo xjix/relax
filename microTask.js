@@ -5,13 +5,13 @@
  * @async
  * @param {function} fn
  */
-const microTask = (fn) => Promise.resolve().then(() => new Promise((resolve, reject) => {
+const microTask = (fn) => new Promise((resolve, reject) => {
   try {
     resolve(fn())
   } catch (err) {
     reject(err)
   }
-}))
+})
 
 /**
  * @module microTask

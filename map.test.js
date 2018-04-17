@@ -22,4 +22,34 @@ describe('async-utils/map', async () => {
     const result = await map(undefined, (n) => n + 1)
     expect(result).toEqual([])
   })
+
+  test('works with collections of objects', async () => {
+    expect.assertions(3)
+    const collection = [
+      {
+        id: 1,
+        score: 1
+      },
+      {
+        id: 2,
+        score: 2
+      },
+      {
+        id: 3,
+        score: 3
+      }
+    ]
+    const result = await map(collection, (user) => {
+      return {
+        ...user,
+        score: user.score + 1
+      }
+    })
+    collection.forEach((user, i) => {
+      expect(result[i]).toMatchObject({
+        id: i + 1,
+        score: i + 2
+      })
+    })
+  })
 })
