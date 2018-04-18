@@ -23,14 +23,18 @@ const spawn = (predicate, fn, rest) => microTask(() => fn(predicate))
  * @param {any} predicate
  * @return {any}
  */
-const fork = (predicate, fns = []) => spawn(
-  predicate,
-  fns[0],
-  fns.slice(1).reverse()
-)
-  .catch((err) => {
-    throw err
-  })
+const fork = (predicate, fns = []) => {
+  return (fns.length)
+    ? spawn(
+      predicate,
+      fns[0],
+      fns.slice(1).reverse()
+    )
+    .catch((err) => {
+      throw err
+    })
+    : predicate
+}
 
 
 /**

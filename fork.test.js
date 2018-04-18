@@ -38,4 +38,10 @@ describe('async-utils/fork', async () => {
     const result = await fork(1, range(1, 100000).map(() => (n) => n + 1))
     expect(result).toEqual(100000)
   })
+
+  test('handles empty function lists', async () => {
+    expect.assertions(1)
+    const result = await fork(1, [])
+    expect(result).toBe(1)
+  })
 })
