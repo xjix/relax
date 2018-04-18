@@ -21,7 +21,7 @@ const spawn = (predicate, fn, rest) => microTask(() => fn(predicate))
  * @async
  * @param {Array<function(value)>} fns
  * @param {any} predicate
- * @return {any}
+ * @return {Promise<any>}
  */
 const fork = (predicate, fns = []) => {
   return (fns.length)
@@ -33,7 +33,7 @@ const fork = (predicate, fns = []) => {
     .catch((err) => {
       throw err
     })
-    : predicate
+    : Promise.resolve(predicate)
 }
 
 
