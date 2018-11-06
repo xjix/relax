@@ -1,6 +1,6 @@
 /* global describe, test, expect */
 
-const map = require('./map')
+const map = require('../map')
 const range = require('lodash/range')
 
 describe('async-utils/map', async () => {
@@ -10,6 +10,16 @@ describe('async-utils/map', async () => {
     const resultB = await map([1, 2, 3], (n) => n * 5)
     expect(resultA).toEqual([2, 3, 4])
     expect(resultB).toEqual([5, 10, 15])
+  })
+
+  test('handles arguments object', async () => {
+    const fn = function () {
+      expect(arguments.map).not.toBeDefined()
+      expect(arguments).toHaveLength(1)
+      return map(arguments, (n) => n + 1)
+    }
+    const result = await fn(1)
+    expect(result).toEqual([2])
   })
 
   test('handles very large collections', async () => {

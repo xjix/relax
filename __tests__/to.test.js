@@ -1,6 +1,6 @@
 /* global describe, test, expect */
 
-const to = require('./to')
+const to = require('../to')
 
 describe('async-utils/to', () => {
   test('return a value when resolved', async () => {

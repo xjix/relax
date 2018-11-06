@@ -1,7 +1,7 @@
 /* global describe, test, expect */
 
 const range = require('lodash/range')
-const fork = require('./fork')
+const fork = require('../fork')
 
 describe('async-utils/fork', async () => {
   test('execute a series of async tasks', async () => {

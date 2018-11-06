@@ -1,6 +1,6 @@
 /* global jest, test, describe, expect */
 
-const Queue = require('./Queue')
+const Queue = require('../Queue')
 const range = require('lodash/range')
 
 describe('Queue', () => {

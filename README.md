@@ -22,7 +22,7 @@ useful tools to work *with* the event loop rather than against it.
 ## Functions
 
 <dl>
-<dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>any</code> ⏏</dt>
+<dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>Promise.&lt;any&gt;</code> ⏏</dt>
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
 </dd>
@@ -38,7 +38,7 @@ as the argument for the next</p>
 ## fork
 <a name="exp_module_fork--fork"></a>
 
-### fork(fns, predicate) ⇒ <code>any</code> ⏏
+### fork(fns, predicate) ⇒ <code>Promise.&lt;any&gt;</code> ⏏
 execute a chain of async operations using the return value of each function
 as the argument for the next
 
