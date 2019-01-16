@@ -62,4 +62,28 @@ describe('async-utils/map', async () => {
       })
     })
   })
+
+  test('handles async functions', async () => {
+    expect.assertions(2)
+    const resultA = await map([1, 2, 3], async (n) => n + 1)
+    const resultB = await map([1, 2, 3], async (n) => n * 5)
+    expect(resultA).toEqual([2, 3, 4])
+    expect(resultB).toEqual([5, 10, 15])
+  })
+
+  test('handles nested async functions', async () => {
+    const collection = [1, 2, 3]
+    const addOne = async (n) => n + 1
+    const timesFive = async (n) => n * 5
+    const result = await map(collection, async (n) => {
+      const a = await addOne(n)
+      const b = await timesFive(n)
+      const [x, y] = await map([a, b], async (z) => {
+        const v = await timesFive(z)
+        return v
+      })
+      return x + y
+    })
+    expect(result).toEqual([35, 65, 95])
+  })
 })

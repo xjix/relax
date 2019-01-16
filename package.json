@@ -7,11 +7,6 @@
     "test": "jest --coverage",
     "build:doc": "jsdoc2md --template README.hbs --files *.js > README.md"
   },
-  "babel": {
-    "presets": [
-      "env"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://source.heropunch.io/r14c/async-utils"
@@ -22,12 +17,8 @@
   "author": "r14c@infinite.ai",
   "license": "Unlicense",
   "devDependencies": {
-    "lodash": "^4.17.4",
-    "babel-core": "^6.26.0",
-    "babel-jest": "^22.4.1",
-    "babel-preset-env": "^1.6.1",
     "jest": "^22.4.2",
     "jsdoc-to-markdown": "^4.0.1",
-    "regenerator-runtime": "^0.11.1"
+    "lodash": "^4.17.11"
   }
 }

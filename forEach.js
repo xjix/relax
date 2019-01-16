@@ -5,5 +5,6 @@ const map = require('./map')
  * @param {function(value)} fn
  */
 module.exports = (collection, fn) => {
-  return map(collection, fn).then(() => Promise.resolve(collection))
+  return map(collection, fn)
+    .then(() => collection)
 }
