@@ -1,3 +1,4 @@
+/** @module memoize */
 import clone from 'lodash/cloneDeep'
 import get from 'lodash/get'
 import isNumber from 'lodash/isNumber'
@@ -6,6 +7,7 @@ import stringify from 'fast-json-stable-stringify'
 import toString from 'lodash/toString'
 const paddingRegex = /=/g
 /**
+ * @ignore
  * @return string
  */
 const checksum = function () {
@@ -14,6 +16,7 @@ const checksum = function () {
   return result.digest('base64').replace(paddingRegex, '')
 }
 /**
+ * @ignore
  * @param {*} value
  * @return {boolean}
  */
@@ -23,6 +26,7 @@ const isPromise = (value) => (value instanceof Promise)
 // memcache ;)
 let cache = {}
 /**
+ * @ignore
  * @param {string} key
  * @param {string} cacheGroup
  */
@@ -30,6 +34,7 @@ const getItem = (key, cacheGroup) => {
   return get(cache, `['${cacheGroup}']['${key}']`)
 }
 /**
+ * @ignore
  * @param {string} key
  * @param {string} cacheGroup
  */
@@ -43,6 +48,7 @@ const evictItem = (key, cacheGroup) => {
 /**
  * if the memoized function returns a promise, we need some special treatment so
  * we don't cache rejections
+ * @ignore
  */
 const setItem = (returnValue, key, cacheGroup) => {
   if (!cache[cacheGroup]) {
@@ -62,6 +68,7 @@ const setItem = (returnValue, key, cacheGroup) => {
   return getItem(key, cacheGroup)
 }
 /**
+ * @ignore
  */
 const setEvictItemTimer = (ttl, key, cacheGroup) => {
   setTimeout(() => {
@@ -69,12 +76,14 @@ const setEvictItemTimer = (ttl, key, cacheGroup) => {
   }, ttl)
 }
 /**
+ * @ignore
  * @param {function} identity - returns a unique key for each input
  * @param {function} fn
  * @param {array} args
  */
 const getKey = (identity, fn, args) => identity([ fn.name, fn.toString(), args ])
 /**
+ * cache the result of a function call in memory.
  * @param {function} fn - the function that is being memoized
  * @param {array} args - arguments that should be passed into fn
  * @param {number|{group: string, value: number}} ttl - time to live value and
