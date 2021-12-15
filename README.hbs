@@ -1,4 +1,4 @@
-# @r14c/async-utils(1) -- async implementations of common utility functions
+# @relax/async-utils(1) -- async implementations of common utility functions
 
 **don't block**
 
