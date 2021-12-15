@@ -1,5 +1,5 @@
 {
-  "name": "@r14c/async-utils",
+  "name": "@relax/async-utils",
   "version": "0.4.1",
   "description": "fully async implementations of common utility functions",
   "main": "index.js",
@@ -14,7 +14,7 @@
   "keywords": [
     "async"
   ],
-  "author": "r14c@xj-ix.luxe",
+  "author": "r14c@heropunch.luxe",
   "license": "Unlicense",
   "devDependencies": {
     "jest": "^27.4.5",
