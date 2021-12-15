@@ -7,6 +7,7 @@ const isString = require('lodash/isString')
  * @param {*} value
  * @return {boolean}
  * @ignore
+ * @alias module:isPrimitive
  */
 const isPrimitive = (value) => isNumber(value) || isString(value) || isBoolean(value) || isNil(value)
 module.exports = isPrimitive

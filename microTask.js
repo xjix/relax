@@ -4,6 +4,7 @@
  * @alias module:microTask
  * @async
  * @param {function} fn
+ * @alias module:microTask
  */
 const microTask = (fn) => new Promise((resolve, reject) => {
   try {
@@ -12,7 +13,6 @@ const microTask = (fn) => new Promise((resolve, reject) => {
     reject(err)
   }
 })
-
 /**
  * @module microTask
  */

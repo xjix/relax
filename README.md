@@ -26,14 +26,14 @@ maintainer and we'll get your changes merged as quickly as possible.
 ## Functions
 
 <dl>
-<dt><a href="#checksum">checksum(...obj)</a> ⇒</dt>
+<dt><a href="#exp_module_checksum--checksum">checksum(...obj)</a> ⇒ ⏏</dt>
 <dd><p>compute a the checksum of a javascript object.</p>
 </dd>
 <dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>Promise.&lt;any&gt;</code> ⏏</dt>
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
 </dd>
-<dt><a href="#Memoize">Memoize([identity])</a></dt>
+<dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⏏</dt>
 <dd><p>cache namespace cosntructor
 the passed <code>identity</code> function is used to track which function made a
 particular call so it can be associated with the cache. by default, memoize
@@ -65,6 +65,51 @@ as the argument for the next
 <a name="module_memoize"></a>
 
 ## memoize
+
+* [memoize](#module_memoize)
+    * [Memoize([identity])](#exp_module_memoize--Memoize) ⏏
+        * [~memoize(fn, args, ttl)](#module_memoize--Memoize..memoize)
+            * [.clear(cacheGroup)](#module_memoize--Memoize..memoize.clear)
+
+<a name="exp_module_memoize--Memoize"></a>
+
+### Memoize([identity]) ⏏
+cache namespace cosntructor
+the passed `identity` function is used to track which function made a
+particular call so it can be associated with the cache. by default, memoize
+uses the included checksum function.
+
+**Kind**: global method of [<code>memoize</code>](#module_memoize)  
+**See**: [checksum](#exp_module_checksum--checksum)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [identity] | <code>function</code> | <code></code> | optional identity function |
+
+<a name="module_memoize--Memoize..memoize"></a>
+
+#### Memoize~memoize(fn, args, ttl)
+cache the result of a function call in memory.
+
+**Kind**: inner method of [<code>Memoize</code>](#exp_module_memoize--Memoize)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | the function that is being memoized |
+| args | <code>array</code> | arguments that should be passed into fn |
+| ttl | <code>number</code> \| <code>Object</code> | time to live value and cache group |
+
+<a name="module_memoize--Memoize..memoize.clear"></a>
+
+##### memoize.clear(cacheGroup)
+evict a group of cached objects
+
+**Kind**: static method of [<code>memoize</code>](#module_memoize--Memoize..memoize)  
+
+| Param | Type |
+| --- | --- |
+| cacheGroup | <code>string</code> | 
+
 <a name="module_microTask"></a>
 
 ## microTask
@@ -90,60 +135,4 @@ schedule a task to run on nextTick
 | Param | Type |
 | --- | --- |
 | promise | <code>Promise</code> | 
-
-<a name="checksum"></a>
-
-## checksum(...obj) ⇒
-compute a the checksum of a javascript object.
-
-**Kind**: global function  
-**Returns**: string  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| ...obj | <code>\*</code> | any javascript object |
-
-<a name="Memoize"></a>
-
-## Memoize([identity])
-cache namespace cosntructor
-the passed `identity` function is used to track which function made a
-particular call so it can be associated with the cache. by default, memoize
-uses the included checksum function.
-
-**Kind**: global function  
-**Link**: module:checksum  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [identity] | <code>function</code> | <code></code> | optional identity function |
-
-
-* [Memoize([identity])](#Memoize)
-    * [~memoize(fn, args, ttl)](#Memoize..memoize)
-        * [.clear(cacheGroup)](#Memoize..memoize.clear)
-
-<a name="Memoize..memoize"></a>
-
-### Memoize~memoize(fn, args, ttl)
-cache the result of a function call in memory.
-
-**Kind**: inner method of [<code>Memoize</code>](#Memoize)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| fn | <code>function</code> | the function that is being memoized |
-| args | <code>array</code> | arguments that should be passed into fn |
-| ttl | <code>number</code> \| <code>Object</code> | time to live value and cache group |
-
-<a name="Memoize..memoize.clear"></a>
-
-#### memoize.clear(cacheGroup)
-evict a group of cached objects
-
-**Kind**: static method of [<code>memoize</code>](#Memoize..memoize)  
-
-| Param | Type |
-| --- | --- |
-| cacheGroup | <code>string</code> | 
 
