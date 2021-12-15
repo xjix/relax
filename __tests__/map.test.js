@@ -1,9 +1,7 @@
 /* global describe, test, expect */
-
 const map = require('../map')
 const range = require('lodash/range')
-
-describe('async-utils/map', async () => {
+describe('async-utils/map', () => {
   test('async map', async () => {
     expect.assertions(2)
     const resultA = await map([1, 2, 3], (n) => n + 1)
@@ -11,7 +9,6 @@ describe('async-utils/map', async () => {
     expect(resultA).toEqual([2, 3, 4])
     expect(resultB).toEqual([5, 10, 15])
   })
-
   test('handles arguments object', async () => {
     const fn = function () {
       expect(arguments.map).not.toBeDefined()
@@ -21,18 +18,15 @@ describe('async-utils/map', async () => {
     const result = await fn(1)
     expect(result).toEqual([2])
   })
-
   test('handles very large collections', async () => {
     expect.assertions(1)
     const result = await map(range(0, 1000), (n) => n + 1)
     expect(result.length).toBe(1000)
   })
-
   test('handles empty collections', async () => {
     const result = await map(undefined, (n) => n + 1)
     expect(result).toEqual([])
   })
-
   test('works with collections of objects', async () => {
     expect.assertions(3)
     const collection = [
@@ -62,7 +56,6 @@ describe('async-utils/map', async () => {
       })
     })
   })
-
   test('handles async functions', async () => {
     expect.assertions(2)
     const resultA = await map([1, 2, 3], async (n) => n + 1)
@@ -70,7 +63,6 @@ describe('async-utils/map', async () => {
     expect(resultA).toEqual([2, 3, 4])
     expect(resultB).toEqual([5, 10, 15])
   })
-
   test('handles nested async functions', async () => {
     const collection = [1, 2, 3]
     const addOne = async (n) => n + 1
