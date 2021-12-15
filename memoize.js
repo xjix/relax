@@ -17,6 +17,7 @@ const getKey = (identity, fn, args) => identity([ fn.name, fn.toString(), args ]
  * particular call so it can be associated with the cache. by default, memoize
  * uses the included checksum function.
  * @param {function} [identity] - optional identity function
+ * @return {function} cache instance
  * @alias module:memoize
  * @see {@link module:checksum}
  */

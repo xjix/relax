@@ -33,7 +33,7 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
 </dd>
-<dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⏏</dt>
+<dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⇒ <code>function</code> ⏏</dt>
 <dd><p>cache namespace cosntructor
 the passed <code>identity</code> function is used to track which function made a
 particular call so it can be associated with the cache. by default, memoize
@@ -67,19 +67,20 @@ as the argument for the next
 ## memoize
 
 * [memoize](#module_memoize)
-    * [Memoize([identity])](#exp_module_memoize--Memoize) ⏏
+    * [Memoize([identity])](#exp_module_memoize--Memoize) ⇒ <code>function</code> ⏏
         * [~memoize(fn, args, ttl)](#module_memoize--Memoize..memoize)
             * [.clear(cacheGroup)](#module_memoize--Memoize..memoize.clear)
 
 <a name="exp_module_memoize--Memoize"></a>
 
-### Memoize([identity]) ⏏
+### Memoize([identity]) ⇒ <code>function</code> ⏏
 cache namespace cosntructor
 the passed `identity` function is used to track which function made a
 particular call so it can be associated with the cache. by default, memoize
 uses the included checksum function.
 
 **Kind**: global method of [<code>memoize</code>](#module_memoize)  
+**Returns**: <code>function</code> - cache instance  
 **See**: [checksum](#exp_module_checksum--checksum)  
 
 | Param | Type | Default | Description |
