@@ -17,8 +17,11 @@
   "author": "r14c@infinite.ai",
   "license": "Unlicense",
   "devDependencies": {
-    "jest": "^22.4.2",
-    "jsdoc-to-markdown": "^4.0.1",
-    "lodash": "^4.17.11"
+    "jest": "^27.4.5",
+    "jsdoc-to-markdown": "^7.1.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "md5.js": "^1.3.5"
   }
 }
