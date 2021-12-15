@@ -13,7 +13,13 @@ maintainer and we'll get your changes merged as quickly as possible.
 ## Modules
 
 <dl>
+<dt><a href="#module_checksum">checksum</a></dt>
+<dd></dd>
+<dt><a href="#module_forEach">forEach</a></dt>
+<dd></dd>
 <dt><a href="#module_fork">fork</a></dt>
+<dd></dd>
+<dt><a href="#module_map">map</a></dt>
 <dd></dd>
 <dt><a href="#module_memoize">memoize</a></dt>
 <dd></dd>
@@ -26,13 +32,17 @@ maintainer and we'll get your changes merged as quickly as possible.
 ## Functions
 
 <dl>
-<dt><a href="#exp_module_checksum--checksum">checksum(...obj)</a> ⇒ ⏏</dt>
+<dt><a href="#exp_module_checksum--checksum">checksum(...obj)</a> ⇒ <code>string</code> ⏏</dt>
 <dd><p>compute a the checksum of a javascript object.</p>
 </dd>
+<dt><a href="#exp_module_forEach--forEach">forEach(collection, fn)</a> ⏏</dt>
+<dd></dd>
 <dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>Promise.&lt;any&gt;</code> ⏏</dt>
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
 </dd>
+<dt><a href="#exp_module_map--map">map(collection, fn)</a> ⏏</dt>
+<dd></dd>
 <dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⇒ <code>function</code> ⏏</dt>
 <dd><p>cache namespace cosntructor
 the passed <code>identity</code> function is used to track which function made a
@@ -45,6 +55,34 @@ uses the included checksum function.</p>
 <dt><a href="#exp_module_to--to">to(promise)</a> ⇒ <code>Promise</code> ⏏</dt>
 <dd></dd>
 </dl>
+
+<a name="module_checksum"></a>
+
+## checksum
+<a name="exp_module_checksum--checksum"></a>
+
+### checksum(...obj) ⇒ <code>string</code> ⏏
+compute a the checksum of a javascript object.
+
+**Kind**: global method of [<code>checksum</code>](#module_checksum)  
+**Returns**: <code>string</code> - md5 hash  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...obj | <code>\*</code> | any javascript object |
+
+<a name="module_forEach"></a>
+
+## forEach
+<a name="exp_module_forEach--forEach"></a>
+
+### forEach(collection, fn) ⏏
+**Kind**: global method of [<code>forEach</code>](#module_forEach)  
+
+| Param | Type |
+| --- | --- |
+| collection | <code>array</code> | 
+| fn | <code>function</code> | 
 
 <a name="module_fork"></a>
 
@@ -61,6 +99,19 @@ as the argument for the next
 | --- | --- |
 | fns | <code>Array.&lt;function(value)&gt;</code> | 
 | predicate | <code>any</code> | 
+
+<a name="module_map"></a>
+
+## map
+<a name="exp_module_map--map"></a>
+
+### map(collection, fn) ⏏
+**Kind**: global method of [<code>map</code>](#module_map)  
+
+| Param | Type |
+| --- | --- |
+| collection | <code>array</code> | 
+| fn | <code>function</code> | 
 
 <a name="module_memoize"></a>
 
@@ -81,7 +132,7 @@ uses the included checksum function.
 
 **Kind**: global method of [<code>memoize</code>](#module_memoize)  
 **Returns**: <code>function</code> - cache instance  
-**See**: [checksum](#exp_module_checksum--checksum)  
+**See**: [checksum](#module_checksum)  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

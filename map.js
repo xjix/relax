@@ -1,10 +1,10 @@
 const microTask = require('./microTask')
-
 /**
  * @param {array} collection
  * @param {function(value)} fn
+ * @alias module:map
  */
-module.exports = (collection = [], fn) => {
+function map(collection = [], fn) {
   let ps = []
   for (let value of collection) {
     ps.push(
@@ -13,3 +13,7 @@ module.exports = (collection = [], fn) => {
   }
   return Promise.all(ps)
 }
+/**
+ * @module map
+ */
+module.exports = map

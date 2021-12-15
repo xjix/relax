@@ -4,7 +4,7 @@ const paddingRegex = /=/g
 /**
  * compute a the checksum of a javascript object.
  * @param {...*} obj - any javascript object
- * @return string
+ * @return {string} md5 hash
  * @alias module:checksum
  */
 const checksum = function () {
@@ -12,4 +12,7 @@ const checksum = function () {
   result.update(`${stableStringify([...arguments])}`)
   return result.digest('base64').replace(paddingRegex, '')
 }
+/**
+ * @module checksum
+ */
 module.exports = checksum

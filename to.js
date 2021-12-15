@@ -9,7 +9,6 @@ const to = (promise) => {
     .then((data) => [null, data])
     .catch((err) => [err, undefined])
 }
-
 /**
  * @module to
  */
