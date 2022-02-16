@@ -19,6 +19,8 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 <dt><a href="#module_map">map</a></dt>
 <dd></dd>
+<dt><a href="#module_matchCase">matchCase</a></dt>
+<dd></dd>
 <dt><a href="#module_memoize">memoize</a></dt>
 <dd></dd>
 <dt><a href="#module_microTask">microTask</a></dt>
@@ -39,6 +41,23 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 <dt><a href="#exp_module_map--map">map(collection, fn)</a> ⏏</dt>
 <dd></dd>
+<dt><a href="#exp_module_matchCase--matchCase">matchCase(input, ...patterns)</a> ⏏</dt>
+<dd><p>type-directed pattern matching. compares input with the given types via
+<code>instanceof</code>.</p>
+<pre><code>const [err, result] = await to(myAsyncFn())
+matchCase(err,
+  [TypeError, () =&gt; {
+    // handle TypeError
+  }],
+  [HttpError, () =&gt; {
+    // handle HttpError
+  }]
+  () =&gt; {
+    // ifNoneMatch, handle result
+  }
+)
+</code></pre>
+</dd>
 <dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⇒ <code>function</code> ⏏</dt>
 <dd><p>cache namespace cosntructor
 the passed <code>identity</code> function is used to track which function made a
@@ -53,7 +72,28 @@ uses the included checksum function.</p>
 as the argument for the next</p>
 </dd>
 <dt><a href="#exp_module_to--to">to(promise)</a> ⇒ <code>Promise</code> ⏏</dt>
-<dd></dd>
+<dd><p>simplify error checking for async processes. promotes shorter code with
+explicit error handling up front.</p>
+<pre><code>const [err, result] = await to(myAsyncFn())
+if (err) {
+  // handle error
+} else {
+  // happy path
+}
+</code></pre>
+<p>compared to the usual try..catch approach. these are simple contrived
+examples, but in complex async processes the resulting code is typically
+more linear, with less nested branches compared to the typical approach.
+we give up the narrow error handling scope and handling errors is always
+deferred until later by the grammar.</p>
+<pre><code>try {
+  const result = await myAsyncFn()
+  // happy path
+} catch (err) {
+  // handle error
+}
+</code></pre>
+</dd>
 </dl>
 
 <a name="module_checksum"></a>
@@ -96,6 +136,36 @@ compute a the checksum of a javascript object.
 | --- | --- |
 | collection | <code>array</code> | 
 | fn | <code>function</code> | 
+
+<a name="module_matchCase"></a>
+
+## matchCase
+<a name="exp_module_matchCase--matchCase"></a>
+
+### matchCase(input, ...patterns) ⏏
+type-directed pattern matching. compares input with the given types via
+`instanceof`.
+```
+const [err, result] = await to(myAsyncFn())
+matchCase(err,
+  [TypeError, () => {
+    // handle TypeError
+  }],
+  [HttpError, () => {
+    // handle HttpError
+  }]
+  () => {
+    // ifNoneMatch, handle result
+  }
+)
+```
+
+**Kind**: global method of [<code>matchCase</code>](#module_matchCase)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>\*</code> |  |
+| ...patterns | <code>Array.&lt;function()&gt;</code> | types to match against, and their corresponding handlers. |
 
 <a name="module_memoize"></a>
 
@@ -182,6 +252,30 @@ as the argument for the next
 <a name="exp_module_to--to"></a>
 
 ### to(promise) ⇒ <code>Promise</code> ⏏
+simplify error checking for async processes. promotes shorter code with
+explicit error handling up front.
+```
+const [err, result] = await to(myAsyncFn())
+if (err) {
+  // handle error
+} else {
+  // happy path
+}
+```
+compared to the usual try..catch approach. these are simple contrived
+examples, but in complex async processes the resulting code is typically
+more linear, with less nested branches compared to the typical approach.
+we give up the narrow error handling scope and handling errors is always
+deferred until later by the grammar.
+```
+try {
+  const result = await myAsyncFn()
+  // happy path
+} catch (err) {
+  // handle error
+}
+```
+
 **Kind**: global method of [<code>to</code>](#module_to)  
 
 | Param | Type |

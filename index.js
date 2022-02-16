@@ -1,8 +1,8 @@
-// implicitly require all utils at once
+console.warn('[@relax/async-utils] implicitly importing all utils at once! prefer importing individual tools.')
 exports.checksum = require('./checksum')
 exports.forEach = require('./forEach')
-exports.fork = require('./fork')
 exports.map = require('./map')
 exports.Memoize = require('./Memoize')
 exports.microTask = require('./microTask')
+exports.pipe = require('./pipe')
 exports.to = require('./to')
