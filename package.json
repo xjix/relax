@@ -8,13 +8,13 @@
     "build:doc": "jsdoc2md --template README.hbs --files *.js > README.md"
   },
   "repository": {
-    "type": "mercurial",
+    "type": "git",
     "url": "https://codeberg.org/xjix/async-utils"
   },
   "keywords": [
     "async"
   ],
-  "author": "r14c@heropunch.luxe",
+  "author": "r14c@xj-ix.luxe",
   "license": "Unlicense",
   "devDependencies": {
     "jest": "^27.4.5",

@@ -17,13 +17,13 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 <dt><a href="#module_forEach">forEach</a></dt>
 <dd></dd>
-<dt><a href="#module_fork">fork</a></dt>
-<dd></dd>
 <dt><a href="#module_map">map</a></dt>
 <dd></dd>
 <dt><a href="#module_memoize">memoize</a></dt>
 <dd></dd>
 <dt><a href="#module_microTask">microTask</a></dt>
+<dd></dd>
+<dt><a href="#module_pipe">pipe</a></dt>
 <dd></dd>
 <dt><a href="#module_to">to</a></dt>
 <dd></dd>
@@ -37,10 +37,6 @@ maintainer and we'll get your changes merged as quickly as possible.
 </dd>
 <dt><a href="#exp_module_forEach--forEach">forEach(collection, fn)</a> ⏏</dt>
 <dd></dd>
-<dt><a href="#exp_module_fork--fork">fork(fns, predicate)</a> ⇒ <code>Promise.&lt;any&gt;</code> ⏏</dt>
-<dd><p>execute a chain of async operations using the return value of each function
-as the argument for the next</p>
-</dd>
 <dt><a href="#exp_module_map--map">map(collection, fn)</a> ⏏</dt>
 <dd></dd>
 <dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⇒ <code>function</code> ⏏</dt>
@@ -51,6 +47,10 @@ uses the included checksum function.</p>
 </dd>
 <dt><a href="#exp_module_microTask--microTask">microTask(fn)</a> ⏏</dt>
 <dd><p>schedule a task to run on nextTick</p>
+</dd>
+<dt><a href="#exp_module_pipe--pipe">pipe(predicate, fns)</a> ⇒ <code>Promise.&lt;any&gt;</code> ⏏</dt>
+<dd><p>execute a chain of async operations using the return value of each function
+as the argument for the next</p>
 </dd>
 <dt><a href="#exp_module_to--to">to(promise)</a> ⇒ <code>Promise</code> ⏏</dt>
 <dd></dd>
@@ -83,22 +83,6 @@ compute a the checksum of a javascript object.
 | --- | --- |
 | collection | <code>array</code> | 
 | fn | <code>function</code> | 
-
-<a name="module_fork"></a>
-
-## fork
-<a name="exp_module_fork--fork"></a>
-
-### fork(fns, predicate) ⇒ <code>Promise.&lt;any&gt;</code> ⏏
-execute a chain of async operations using the return value of each function
-as the argument for the next
-
-**Kind**: global method of [<code>fork</code>](#module_fork)  
-
-| Param | Type |
-| --- | --- |
-| fns | <code>Array.&lt;function(value)&gt;</code> | 
-| predicate | <code>any</code> | 
 
 <a name="module_map"></a>
 
@@ -175,6 +159,22 @@ schedule a task to run on nextTick
 | Param | Type |
 | --- | --- |
 | fn | <code>function</code> | 
+
+<a name="module_pipe"></a>
+
+## pipe
+<a name="exp_module_pipe--pipe"></a>
+
+### pipe(predicate, fns) ⇒ <code>Promise.&lt;any&gt;</code> ⏏
+execute a chain of async operations using the return value of each function
+as the argument for the next
+
+**Kind**: global method of [<code>pipe</code>](#module_pipe)  
+
+| Param | Type |
+| --- | --- |
+| predicate | <code>any</code> | 
+| fns | <code>Array.&lt;function(value)&gt;</code> | 
 
 <a name="module_to"></a>
 

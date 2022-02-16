@@ -17,13 +17,13 @@ const spawn = (predicate, fn, rest) => microTask(() => fn(predicate))
  * execute a chain of async operations using the return value of each function
  * as the argument for the next
  *
- * @alias module:fork
+ * @alias module:pipe
  * @async
- * @param {Array<function(value)>} fns
  * @param {any} predicate
+ * @param {Array<function(value)>} fns
  * @return {Promise<any>}
  */
-const fork = (predicate, fns = []) => {
+const pipe = (predicate, fns = []) => {
   return (fns.length)
     ? spawn(
       predicate,
@@ -38,6 +38,6 @@ const fork = (predicate, fns = []) => {
 
 
 /**
- * @module fork
+ * @module pipe
  */
-module.exports = fork
+module.exports = pipe
