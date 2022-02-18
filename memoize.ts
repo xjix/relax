@@ -1,8 +1,9 @@
-const checksum = require('./checksum')
-const clone = require('lodash/cloneDeep')
-const get = require('lodash/get')
-const isNumber = require('lodash/isNumber')
-const isPromise = require('./isPromise')
+import checksum from './checksum'
+import clone from 'lodash/cloneDeep'
+import get from 'lodash/get'
+import isNumber from 'lodash/isNumber'
+import isPromise from './isPromise'
+import toString from 'lodash/toString'
 /**
  * @param {function} identity - returns a unique key for each input
  * @param {function} fn
@@ -130,4 +131,4 @@ function Memoize(identity = null) {
 /**
  * @module memoize
  */
-module.exports = Memoize
+export default Memoize

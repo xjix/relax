@@ -22,17 +22,18 @@
  *   // handle error
  * }
  * ```
- * @param {Promise} promise
- * @return {Promise}
  * @alias module:to
  * @async
  */
-const to = (promise) => {
-  return promise
-    .then((data) => [null, data])
-    .catch((err) => [err, undefined])
+async function to<Type>(promise: Promise<Type>): Promise<[void, Type] | [Error, void]> {
+  try {
+    const data = await promise
+    return [null, data]
+  } catch (err) {
+    return [err, null]
+  }
 }
 /**
  * @module to
  */
-module.exports = to
+export default to

@@ -1,13 +1,15 @@
-const isBoolean = require('lodash/isBoolean')
-const isNil = require('lodash/isNil')
-const isNumber = require('lodash/isNumber')
-const isString = require('lodash/isString')
+import isBoolean from 'lodash/isBoolean'
+import isNil from 'lodash/isNil'
+import isNumber from 'lodash/isNumber'
+import isString from 'lodash/isString'
 /**
  * checks a value to see if it is a primitive
- * @param {*} value
- * @return {boolean}
  * @ignore
  * @alias module:isPrimitive
  */
-const isPrimitive = (value) => isNumber(value) || isString(value) || isBoolean(value) || isNil(value)
-module.exports = isPrimitive
+const isPrimitive = (value: any): boolean => isNumber(value) || isString(value) || isBoolean(value) || isNil(value)
+/**
+ * @module isPrimitive
+ */
+export default isPrimitive
+

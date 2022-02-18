@@ -1,8 +1,10 @@
 /**
  * @param {*} value
- * @return {boolean}
  * @ignore
  * @alias module:isPromise
  */
-const isPromise = (value) => (value instanceof Promise)
-module.exports = isPromise
+const isPromise = (value): boolean => (value instanceof Promise)
+/**
+ * @module isPromise
+ */
+export default isPromise

@@ -17,7 +17,7 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 <dt><a href="#module_forEach">forEach</a></dt>
 <dd></dd>
-<dt><a href="#module_map">map</a></dt>
+<dt><a href="#module_isPromise">isPromise</a></dt>
 <dd></dd>
 <dt><a href="#module_matchCase">matchCase</a></dt>
 <dd></dd>
@@ -27,21 +27,30 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 <dt><a href="#module_pipe">pipe</a></dt>
 <dd></dd>
+<dt><a href="#module_Queue">Queue</a></dt>
+<dd></dd>
 <dt><a href="#module_to">to</a></dt>
+<dd></dd>
+</dl>
+
+## Members
+
+<dl>
+<dt><a href="#exp_module_Queue--Queue">Queue</a> ⏏</dt>
 <dd></dd>
 </dl>
 
 ## Functions
 
 <dl>
-<dt><a href="#exp_module_checksum--checksum">checksum(...obj)</a> ⇒ <code>string</code> ⏏</dt>
+<dt><a href="#exp_module_checksum--checksum">checksum(...input)</a> ⏏</dt>
 <dd><p>compute a the checksum of a javascript object.</p>
 </dd>
 <dt><a href="#exp_module_forEach--forEach">forEach(collection, fn)</a> ⏏</dt>
 <dd></dd>
 <dt><a href="#exp_module_map--map">map(collection, fn)</a> ⏏</dt>
 <dd></dd>
-<dt><a href="#exp_module_matchCase--matchCase">matchCase(input, ...patterns)</a> ⏏</dt>
+<dt><a href="#exp_module_matchCase--matchCase">matchCase()</a> ⏏</dt>
 <dd><p>type-directed pattern matching. compares input with the given types via
 <code>instanceof</code>.</p>
 <pre><code>const [err, result] = await to(myAsyncFn())
@@ -57,6 +66,7 @@ matchCase(err,
   }
 )
 </code></pre>
+<p>corresponding handlers.</p>
 </dd>
 <dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⇒ <code>function</code> ⏏</dt>
 <dd><p>cache namespace cosntructor
@@ -101,15 +111,14 @@ deferred until later by the grammar.</p>
 ## checksum
 <a name="exp_module_checksum--checksum"></a>
 
-### checksum(...obj) ⇒ <code>string</code> ⏏
+### checksum(...input) ⏏
 compute a the checksum of a javascript object.
 
 **Kind**: global method of [<code>checksum</code>](#module_checksum)  
-**Returns**: <code>string</code> - md5 hash  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...obj | <code>\*</code> | any javascript object |
+| ...input | <code>\*</code> | any javascript object |
 
 <a name="module_forEach"></a>
 
@@ -124,25 +133,15 @@ compute a the checksum of a javascript object.
 | collection | <code>array</code> | 
 | fn | <code>function</code> | 
 
-<a name="module_map"></a>
+<a name="module_isPromise"></a>
 
-## map
-<a name="exp_module_map--map"></a>
-
-### map(collection, fn) ⏏
-**Kind**: global method of [<code>map</code>](#module_map)  
-
-| Param | Type |
-| --- | --- |
-| collection | <code>array</code> | 
-| fn | <code>function</code> | 
-
+## isPromise
 <a name="module_matchCase"></a>
 
 ## matchCase
 <a name="exp_module_matchCase--matchCase"></a>
 
-### matchCase(input, ...patterns) ⏏
+### matchCase() ⏏
 type-directed pattern matching. compares input with the given types via
 `instanceof`.
 ```
@@ -159,14 +158,9 @@ matchCase(err,
   }
 )
 ```
+corresponding handlers.
 
 **Kind**: global method of [<code>matchCase</code>](#module_matchCase)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| input | <code>\*</code> |  |
-| ...patterns | <code>Array.&lt;function()&gt;</code> | types to match against, and their corresponding handlers. |
-
 <a name="module_memoize"></a>
 
 ## memoize
@@ -188,9 +182,9 @@ uses the included checksum function.
 **Returns**: <code>function</code> - cache instance  
 **See**: [checksum](#module_checksum)  
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [identity] | <code>function</code> | <code></code> | optional identity function |
+| Param | Type | Description |
+| --- | --- | --- |
+| [identity] | <code>function</code> | optional identity function |
 
 <a name="module_memoize--Memoize..memoize"></a>
 
@@ -246,6 +240,13 @@ as the argument for the next
 | predicate | <code>any</code> | 
 | fns | <code>Array.&lt;function(value)&gt;</code> | 
 
+<a name="module_Queue"></a>
+
+## Queue
+<a name="exp_module_Queue--Queue"></a>
+
+### Queue ⏏
+**Kind**: global property of [<code>Queue</code>](#module_Queue)  
 <a name="module_to"></a>
 
 ## to

@@ -1,3 +1,4 @@
+type Pattern = [Function, Function] | Function
 /**
  * type-directed pattern matching. compares input with the given types via
  * `instanceof`.
@@ -15,26 +16,17 @@
  *   }
  * )
  * ```
- * @param {*} input
- * @param {...function[]} patterns - types to match against, and their
  * corresponding handlers.
  * @alias module:matchCase
  * @async
  */
-const matchCase = function () {
-  const args = Array.prototype.slice.call(arguments)
-  const input = args[0]
-  for (let [i, pattern] of Object.entries(types.slice(1))) {
-    if (
-      (i === args.length) &&
-      (typeof pattern === 'function')
-    ) {
-      return pattern()
-    } else if (
-      (typeof pattern === 'object') &&
-      (pattern.length === 2)
-    ) {
-      const [Type, handler] = pattern
+const matchCase = function (input, ...patterns: Pattern[]) {
+  for (let maybePattern of patterns) {
+    if (typeof maybePattern === 'function') {
+      const ifNoneMatch = maybePattern
+      return ifNoneMatch()
+    } else {
+      const [ Type, handler ] = maybePattern
       if (input instanceof Type) {
         return handler()
       }
@@ -44,4 +36,4 @@ const matchCase = function () {
 /**
  * @module matchCase
  */
-module.exports = matchCase
+export default matchCase

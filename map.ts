@@ -1,10 +1,10 @@
-const microTask = require('./microTask')
+import microTask from './microTask'
 /**
  * @param {array} collection
  * @param {function(value)} fn
  * @alias module:map
  */
-function map(collection = [], fn) {
+export default function map(collection = [], fn) {
   let ps = []
   for (let value of collection) {
     ps.push(
@@ -13,7 +13,3 @@ function map(collection = [], fn) {
   }
   return Promise.all(ps)
 }
-/**
- * @module map
- */
-module.exports = map

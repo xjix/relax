@@ -1,11 +1,21 @@
-const microTask = require('./microTask')
+import microTask from './microTask'
 
-const defer = (fn) => new Promise((resolve) => setTimeout(() => resolve(), 10))
+const defer = (fn): Promise<void> =>
+  new Promise((resolve) => setTimeout(() => resolve(), 10))
 
 const logError = (err) => console.error(err)
 
+interface QueueCreateOptions {
+  concurrency?: number;
+  next?: Function;
+  onError?: Function;
+}
+
+/**
+ * @alias module:Queue
+ */
 const Queue = {
-  create (options = {}) {
+  create (options: QueueCreateOptions = {}) {
     const concurrency = options.concurrency || 2
     const next = options.next || defer
     const onError = options.onError || logError
@@ -36,5 +46,7 @@ const Queue = {
     }
   }
 }
-
-module.exports = Queue
+/**
+ * @module Queue
+ */
+export default Queue

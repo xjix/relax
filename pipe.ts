@@ -1,4 +1,4 @@
-const microTask = require('./microTask')
+import microTask from './microTask'
 
 const spawn = (predicate, fn, rest) => microTask(() => fn(predicate))
   .then((result) => {
@@ -40,4 +40,4 @@ const pipe = (predicate, fns = []) => {
 /**
  * @module pipe
  */
-module.exports = pipe
+export default pipe

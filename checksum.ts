@@ -1,18 +1,17 @@
-const MD5 = require('md5.js')
-const stableStringify = require('fast-json-stable-stringify')
+import MD5 from 'md5.js'
+import stableStringify from 'fast-json-stable-stringify'
 const paddingRegex = /=/g
 /**
  * compute a the checksum of a javascript object.
- * @param {...*} obj - any javascript object
- * @return {string} md5 hash
+ * @param {...*} input - any javascript object
  * @alias module:checksum
  */
-const checksum = function () {
+const checksum = function (...input): string {
   let result = new MD5()
-  result.update(`${stableStringify([...arguments])}`)
+  result.update(stableStringify(input))
   return result.digest('base64').replace(paddingRegex, '')
 }
 /**
  * @module checksum
  */
-module.exports = checksum
+export default checksum

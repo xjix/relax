@@ -1,4 +1,4 @@
-const map = require('./map')
+import map from './map'
 /**
  * @param {array} collection
  * @param {function(value)} fn
@@ -10,4 +10,4 @@ function forEach(collection, fn) {
 /**
  * @module forEach
  */
-module.exports = forEach
+export default forEach
