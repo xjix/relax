@@ -3,7 +3,6 @@ const clone = require('lodash/cloneDeep')
 const get = require('lodash/get')
 const isNumber = require('lodash/isNumber')
 const isPromise = require('./isPromise')
-const toString = require('lodash/toString')
 /**
  * @param {function} identity - returns a unique key for each input
  * @param {function} fn
