@@ -17,8 +17,6 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 <dt><a href="#module_forEach">forEach</a></dt>
 <dd></dd>
-<dt><a href="#module_isPromise">isPromise</a></dt>
-<dd></dd>
 <dt><a href="#module_matchCase">matchCase</a></dt>
 <dd></dd>
 <dt><a href="#module_memoize">memoize</a></dt>
@@ -81,7 +79,7 @@ uses the included checksum function.</p>
 <dd><p>execute a chain of async operations using the return value of each function
 as the argument for the next</p>
 </dd>
-<dt><a href="#exp_module_to--to">to(promise)</a> ⇒ <code>Promise</code> ⏏</dt>
+<dt><a href="#exp_module_to--to">to()</a> ⏏</dt>
 <dd><p>simplify error checking for async processes. promotes shorter code with
 explicit error handling up front.</p>
 <pre><code>const [err, result] = await to(myAsyncFn())
@@ -133,9 +131,6 @@ compute a the checksum of a javascript object.
 | collection | <code>array</code> | 
 | fn | <code>function</code> | 
 
-<a name="module_isPromise"></a>
-
-## isPromise
 <a name="module_matchCase"></a>
 
 ## matchCase
@@ -252,7 +247,7 @@ as the argument for the next
 ## to
 <a name="exp_module_to--to"></a>
 
-### to(promise) ⇒ <code>Promise</code> ⏏
+### to() ⏏
 simplify error checking for async processes. promotes shorter code with
 explicit error handling up front.
 ```
@@ -278,8 +273,3 @@ try {
 ```
 
 **Kind**: global method of [<code>to</code>](#module_to)  
-
-| Param | Type |
-| --- | --- |
-| promise | <code>Promise</code> | 
-

@@ -8,8 +8,4 @@ import isString from 'lodash/isString'
  * @alias module:isPrimitive
  */
 const isPrimitive = (value: any): boolean => isNumber(value) || isString(value) || isBoolean(value) || isNil(value)
-/**
- * @module isPrimitive
- */
 export default isPrimitive
-
