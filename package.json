@@ -12,16 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://codeberg.org/xjix/async-utils"
+    "url": "https://codeberg.org/xjix/relax-async-utils"
   },
   "keywords": [
-    "async"
+    "async",
+    "typescript"
   ],
   "author": "r14c@xj-ix.luxe",
   "license": "Unlicense",
   "devDependencies": {
+    "@types/jest": "^27.4.1",
     "jest": "^27.4.5",
     "jsdoc-to-markdown": "^7.1.0",
+    "ts-jest": "^27.1.3",
     "typescript": "^4.5.5"
   },
   "dependencies": {

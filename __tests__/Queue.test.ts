@@ -1,7 +1,6 @@
 /* global jest, test, describe, expect */
-
-const Queue = require('../Queue')
-const range = require('lodash/range')
+import Queue from '../Queue'
+import range from 'lodash/range'
 
 describe('Queue', () => {
   test('execute a task', () => {
@@ -40,7 +39,7 @@ describe('Queue', () => {
     expect.assertions(2)
     const next = jest.fn()
     next.mockImplementation(() => {
-      return new Promise((resolve) => resolve())
+      return new Promise((resolve) => resolve(true))
     })
     const queue = Queue.create({next})
     const task = jest.fn()

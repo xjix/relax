@@ -1,6 +1,5 @@
 /* global describe, test, expect */
-
-const to = require('../to')
+import to from '../to'
 
 describe('async-utils/to', () => {
   test('return a value when resolved', async () => {
@@ -15,6 +14,6 @@ describe('async-utils/to', () => {
     const promise = Promise.reject('Error')
     const [err, data] = await to(promise)
     expect(err).toEqual('Error')
-    expect(data).toBeUndefined()
+    expect(data).toBeNull()
   })
 })

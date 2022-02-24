@@ -1,7 +1,7 @@
 /* global describe, test, expect, jest, beforeEach */
-const cloneDeep = require('lodash/cloneDeep')
-const range = require('lodash/range')
-const Memoize = require('../memoize')
+import cloneDeep from 'lodash/cloneDeep'
+import range from 'lodash/range'
+import Memoize from '../memoize'
 describe('async-utils/memoize', () => {
   let memoize
   jest.useFakeTimers()

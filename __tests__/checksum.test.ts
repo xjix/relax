@@ -1,6 +1,6 @@
 /* global test, describe, expect */
-const range = require('lodash/range')
-const checksum = require('../checksum')
+import range from 'lodash/range'
+import checksum from '../checksum'
 describe('async-utils/checksum', () => {
   test('works with primitives', () => {
     const testItems = [

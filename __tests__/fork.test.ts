@@ -1,6 +1,6 @@
 /* global describe, test, expect */
-const range = require('lodash/range')
-const fork = require('../fork')
+import range from 'lodash/range'
+import fork from '../pipe'
 describe('async-utils/fork', () => {
   test('execute a series of async tasks', async () => {
     const result = await fork(1, [

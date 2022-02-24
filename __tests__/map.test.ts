@@ -1,6 +1,6 @@
 /* global describe, test, expect */
-const map = require('../map')
-const range = require('lodash/range')
+import map from '../map'
+import range from 'lodash/range'
 describe('async-utils/map', () => {
   test('async map', async () => {
     expect.assertions(2)
@@ -10,10 +10,9 @@ describe('async-utils/map', () => {
     expect(resultB).toEqual([5, 10, 15])
   })
   test('handles arguments object', async () => {
-    const fn = function () {
-      expect(arguments.map).not.toBeDefined()
+    const fn = function (n: number) {
       expect(arguments).toHaveLength(1)
-      return map(arguments, (n) => n + 1)
+      return map(Array.from(arguments), (n) => n + 1)
     }
     const result = await fn(1)
     expect(result).toEqual([2])
