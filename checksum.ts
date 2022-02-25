@@ -4,6 +4,7 @@ const paddingRegex = /=/g
 /**
  * compute a the checksum of a javascript object.
  * @param {...*} input - any javascript object
+ * @return {string}
  * @alias module:checksum
  */
 const checksum = function (...input): string {

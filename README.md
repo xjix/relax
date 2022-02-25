@@ -31,7 +31,7 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 </dl>
 
-## Constants
+## Classes
 
 <dl>
 <dt><a href="#exp_module_Queue--Queue">Queue</a> ⏏</dt>
@@ -41,7 +41,7 @@ maintainer and we'll get your changes merged as quickly as possible.
 ## Functions
 
 <dl>
-<dt><a href="#exp_module_checksum--checksum">checksum(...input)</a> ⏏</dt>
+<dt><a href="#exp_module_checksum--checksum">checksum(...input)</a> ⇒ <code>string</code> ⏏</dt>
 <dd><p>compute a the checksum of a javascript object.</p></dd>
 <dt><a href="#exp_module_forEach--forEach">forEach(collection, fn)</a> ⏏</dt>
 <dd></dd>
@@ -102,7 +102,7 @@ deferred until later by the grammar.</p>
 ## checksum
 <a name="exp_module_checksum--checksum"></a>
 
-### checksum(...input) ⏏
+### checksum(...input) ⇒ <code>string</code> ⏏
 <p>compute a the checksum of a javascript object.</p>
 
 **Kind**: global method of [<code>checksum</code>](#module_checksum)  
@@ -232,7 +232,7 @@ as the argument for the next</p>
 <a name="exp_module_Queue--Queue"></a>
 
 ### Queue ⏏
-**Kind**: global constant of [<code>Queue</code>](#module_Queue)  
+**Kind**: global class of [<code>Queue</code>](#module_Queue)  
 <a name="module_to"></a>
 
 ## to

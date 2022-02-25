@@ -5,7 +5,7 @@ import range from 'lodash/range'
 describe('Queue', () => {
   test('execute a task', () => {
     expect.assertions(1)
-    const queue = Queue.create()
+    const queue = new Queue()
     const task = jest.fn()
     queue.push(task)
     return new Promise((resolve) => {
@@ -17,7 +17,7 @@ describe('Queue', () => {
 
   test('execute multiple tasks', () => {
     expect.assertions(10)
-    const queue = Queue.create()
+    const queue = new Queue()
     let tasks = []
     range(0, 10).forEach((i) => {
       const task = jest.fn()
@@ -41,7 +41,7 @@ describe('Queue', () => {
     next.mockImplementation(() => {
       return new Promise((resolve) => resolve(true))
     })
-    const queue = Queue.create({next})
+    const queue = new Queue({next})
     const task = jest.fn()
     queue.push(task)
     return new Promise((resolve) => {
@@ -61,7 +61,7 @@ describe('Queue', () => {
     onError.mockImplementation((ex) => {
       err = ex
     })
-    const queue = Queue.create({onError})
+    const queue = new Queue({onError})
     const task = jest.fn()
     const errTask = jest.fn()
     errTask.mockImplementation(() => {

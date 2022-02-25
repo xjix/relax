@@ -1,51 +1,55 @@
 import microTask from './microTask'
 
-const defer = (fn): Promise<void> =>
+const defer = (): Promise<void> =>
   new Promise((resolve) => setTimeout(() => resolve(), 10))
 
 const logError = (err) => console.error(err)
 
-interface QueueCreateOptions {
+interface QueueOptions {
   concurrency?: number;
-  next?: Function;
-  onError?: Function;
+  next?: () => Promise<any>;
+  onError?: (Error) => void;
 }
 
 /**
  * @alias module:Queue
  */
-const Queue = {
-  create (options: QueueCreateOptions = {}) {
-    const concurrency = options.concurrency || 2
-    const next = options.next || defer
-    const onError = options.onError || logError
-    let queue = []
-    let active = 0
-    const runTasks = () => {
-      if (active < concurrency) {
-        active++
-        const task = queue.shift()
-        if (task) {
-          microTask(task).then(() => {
-            active--
-            next().then(() => runTasks())
-          }).catch((err) => {
-            onError(err)
-            next().then(() => runTasks())
-          })
-        } else {
-          active--
-        }
-      }
-    }
-    return {
-      push (fn) {
-        queue.push(fn)
-        return runTasks()
+class Queue {
+  private active = 0;
+  private queue = [];
+  private next = defer;
+  private onError = logError;
+  concurrency = 2;
+  constructor(options: QueueOptions = {}) {
+    this.concurrency = options.concurrency || 2
+    this.next = options.next || defer
+    this.onError = options.onError || logError
+    this.queue = []
+    this.active = 0
+  }
+  private runTasks() {
+    if (this.active < this.concurrency) {
+      this.active++
+      const task = this.queue.shift()
+      if (task) {
+        microTask(task).then(() => {
+          this.active--
+          this.next().then(() => this.runTasks())
+        }).catch((err) => {
+          this.onError(err)
+          this.next().then(() => this.runTasks())
+        })
+      } else {
+        this.active--
       }
     }
   }
+  push(fn) {
+    this.queue.push(fn)
+    return this.runTasks()
+  }
 }
+
 /**
  * @module Queue
  */

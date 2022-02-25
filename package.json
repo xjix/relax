@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build && npm run build:doc",
-    "clean": "rm *.js *.d.ts",
     "test": "jest --coverage",
     "build:doc": "jsdoc2md --configure ./jsdoc2md.json --template README.hbs --files *.ts > README.md"
   },
