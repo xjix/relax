@@ -31,7 +31,7 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dd></dd>
 </dl>
 
-## Members
+## Constants
 
 <dl>
 <dt><a href="#exp_module_Queue--Queue">Queue</a> ⏏</dt>
@@ -42,8 +42,7 @@ maintainer and we'll get your changes merged as quickly as possible.
 
 <dl>
 <dt><a href="#exp_module_checksum--checksum">checksum(...input)</a> ⏏</dt>
-<dd><p>compute a the checksum of a javascript object.</p>
-</dd>
+<dd><p>compute a the checksum of a javascript object.</p></dd>
 <dt><a href="#exp_module_forEach--forEach">forEach(collection, fn)</a> ⏏</dt>
 <dd></dd>
 <dt><a href="#exp_module_map--map">map(collection, fn)</a> ⏏</dt>
@@ -51,38 +50,33 @@ maintainer and we'll get your changes merged as quickly as possible.
 <dt><a href="#exp_module_matchCase--matchCase">matchCase()</a> ⏏</dt>
 <dd><p>type-directed pattern matching. compares input with the given types via
 <code>instanceof</code>.</p>
-<pre><code>const [err, result] = await to(myAsyncFn())
-matchCase(err,
-  [TypeError, () =&gt; {
+<pre class="prettyprint source"><code>const [err, result] = await to(myAsyncFn())
+cosnt returnValue = matchCase(err,
+  [TypeError, () => {
     // handle TypeError
   }],
-  [HttpError, () =&gt; {
+  [HttpError, () => {
     // handle HttpError
-  }]
-  () =&gt; {
+  }],
+  () => {
     // ifNoneMatch, handle result
   }
 )
-</code></pre>
-<p>corresponding handlers.</p>
-</dd>
+</code></pre></dd>
 <dt><a href="#exp_module_memoize--Memoize">Memoize([identity])</a> ⇒ <code>function</code> ⏏</dt>
 <dd><p>cache namespace cosntructor
 the passed <code>identity</code> function is used to track which function made a
 particular call so it can be associated with the cache. by default, memoize
-uses the included checksum function.</p>
-</dd>
+uses the included checksum function.</p></dd>
 <dt><a href="#exp_module_microTask--microTask">microTask(fn)</a> ⏏</dt>
-<dd><p>schedule a task to run on nextTick</p>
-</dd>
+<dd><p>schedule a task to run on nextTick</p></dd>
 <dt><a href="#exp_module_pipe--pipe">pipe(predicate, fns)</a> ⇒ <code>Promise.&lt;any&gt;</code> ⏏</dt>
 <dd><p>execute a chain of async operations using the return value of each function
-as the argument for the next</p>
-</dd>
+as the argument for the next</p></dd>
 <dt><a href="#exp_module_to--to">to()</a> ⏏</dt>
 <dd><p>simplify error checking for async processes. promotes shorter code with
 explicit error handling up front.</p>
-<pre><code>const [err, result] = await to(myAsyncFn())
+<pre class="prettyprint source"><code>const [err, result] = await to(myAsyncFn())
 if (err) {
   // handle error
 } else {
@@ -94,14 +88,13 @@ examples, but in complex async processes the resulting code is typically
 more linear, with less nested branches compared to the typical approach.
 we give up the narrow error handling scope and handling errors is always
 deferred until later by the grammar.</p>
-<pre><code>try {
+<pre class="prettyprint source"><code>try {
   const result = await myAsyncFn()
   // happy path
 } catch (err) {
   // handle error
 }
-</code></pre>
-</dd>
+</code></pre></dd>
 </dl>
 
 <a name="module_checksum"></a>
@@ -110,13 +103,13 @@ deferred until later by the grammar.</p>
 <a name="exp_module_checksum--checksum"></a>
 
 ### checksum(...input) ⏏
-compute a the checksum of a javascript object.
+<p>compute a the checksum of a javascript object.</p>
 
 **Kind**: global method of [<code>checksum</code>](#module_checksum)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...input | <code>\*</code> | any javascript object |
+| ...input | <code>\*</code> | <p>any javascript object</p> |
 
 <a name="module_forEach"></a>
 
@@ -137,23 +130,21 @@ compute a the checksum of a javascript object.
 <a name="exp_module_matchCase--matchCase"></a>
 
 ### matchCase() ⏏
-type-directed pattern matching. compares input with the given types via
-`instanceof`.
-```
-const [err, result] = await to(myAsyncFn())
-matchCase(err,
+<p>type-directed pattern matching. compares input with the given types via
+<code>instanceof</code>.</p>
+<pre class="prettyprint source"><code>const [err, result] = await to(myAsyncFn())
+cosnt returnValue = matchCase(err,
   [TypeError, () => {
     // handle TypeError
   }],
   [HttpError, () => {
     // handle HttpError
-  }]
+  }],
   () => {
     // ifNoneMatch, handle result
   }
 )
-```
-corresponding handlers.
+</code></pre>
 
 **Kind**: global method of [<code>matchCase</code>](#module_matchCase)  
 <a name="module_memoize"></a>
@@ -168,36 +159,36 @@ corresponding handlers.
 <a name="exp_module_memoize--Memoize"></a>
 
 ### Memoize([identity]) ⇒ <code>function</code> ⏏
-cache namespace cosntructor
-the passed `identity` function is used to track which function made a
+<p>cache namespace cosntructor
+the passed <code>identity</code> function is used to track which function made a
 particular call so it can be associated with the cache. by default, memoize
-uses the included checksum function.
+uses the included checksum function.</p>
 
 **Kind**: global method of [<code>memoize</code>](#module_memoize)  
-**Returns**: <code>function</code> - cache instance  
+**Returns**: <code>function</code> - <p>cache instance</p>  
 **See**: [checksum](#module_checksum)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| [identity] | <code>function</code> | optional identity function |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [identity] | <code>function</code> | <code></code> | <p>optional identity function</p> |
 
 <a name="module_memoize--Memoize..memoize"></a>
 
 #### Memoize~memoize(fn, args, ttl)
-cache the result of a function call in memory.
+<p>cache the result of a function call in memory.</p>
 
 **Kind**: inner method of [<code>Memoize</code>](#exp_module_memoize--Memoize)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| fn | <code>function</code> | the function that is being memoized |
-| args | <code>array</code> | arguments that should be passed into fn |
-| ttl | <code>number</code> \| <code>Object</code> | time to live value and cache group |
+| fn | <code>function</code> | <p>the function that is being memoized</p> |
+| args | <code>array</code> | <p>arguments that should be passed into fn</p> |
+| ttl | <code>number</code> \| <code>Object</code> | <p>time to live value and cache group</p> |
 
 <a name="module_memoize--Memoize..memoize.clear"></a>
 
 ##### memoize.clear(cacheGroup)
-evict a group of cached objects
+<p>evict a group of cached objects</p>
 
 **Kind**: static method of [<code>memoize</code>](#module_memoize--Memoize..memoize)  
 
@@ -211,7 +202,7 @@ evict a group of cached objects
 <a name="exp_module_microTask--microTask"></a>
 
 ### microTask(fn) ⏏
-schedule a task to run on nextTick
+<p>schedule a task to run on nextTick</p>
 
 **Kind**: global method of [<code>microTask</code>](#module_microTask)  
 
@@ -225,8 +216,8 @@ schedule a task to run on nextTick
 <a name="exp_module_pipe--pipe"></a>
 
 ### pipe(predicate, fns) ⇒ <code>Promise.&lt;any&gt;</code> ⏏
-execute a chain of async operations using the return value of each function
-as the argument for the next
+<p>execute a chain of async operations using the return value of each function
+as the argument for the next</p>
 
 **Kind**: global method of [<code>pipe</code>](#module_pipe)  
 
@@ -241,35 +232,34 @@ as the argument for the next
 <a name="exp_module_Queue--Queue"></a>
 
 ### Queue ⏏
-**Kind**: global property of [<code>Queue</code>](#module_Queue)  
+**Kind**: global constant of [<code>Queue</code>](#module_Queue)  
 <a name="module_to"></a>
 
 ## to
 <a name="exp_module_to--to"></a>
 
 ### to() ⏏
-simplify error checking for async processes. promotes shorter code with
-explicit error handling up front.
-```
-const [err, result] = await to(myAsyncFn())
+<p>simplify error checking for async processes. promotes shorter code with
+explicit error handling up front.</p>
+<pre class="prettyprint source"><code>const [err, result] = await to(myAsyncFn())
 if (err) {
   // handle error
 } else {
   // happy path
 }
-```
-compared to the usual try..catch approach. these are simple contrived
+</code></pre>
+<p>compared to the usual try..catch approach. these are simple contrived
 examples, but in complex async processes the resulting code is typically
 more linear, with less nested branches compared to the typical approach.
 we give up the narrow error handling scope and handling errors is always
-deferred until later by the grammar.
-```
-try {
+deferred until later by the grammar.</p>
+<pre class="prettyprint source"><code>try {
   const result = await myAsyncFn()
   // happy path
 } catch (err) {
   // handle error
 }
-```
+</code></pre>
 
 **Kind**: global method of [<code>to</code>](#module_to)  
+**See**: module:matchCase  

@@ -23,6 +23,7 @@
  * }
  * ```
  * @alias module:to
+ * @see module:matchCase
  * @async
  */
 async function to<Type>(promise: Promise<Type>): Promise<[void, Type] | [Error, void]> {
