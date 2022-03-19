@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run build && npm run build:doc",
+    "prepare": "npm run clean && npm run build:doc && npm run build",
     "test": "jest --coverage",
+    "clean": "rm -f *.d.ts *.js",
     "build:doc": "jsdoc2md --configure ./jsdoc2md.json --template README.hbs --files *.ts > README.md"
   },
   "repository": {
