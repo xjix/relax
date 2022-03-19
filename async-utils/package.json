@@ -10,8 +10,8 @@
     "build:doc": "jsdoc2md --configure ./jsdoc2md.json --template README.hbs --files *.ts > README.md"
   },
   "repository": {
-    "type": "git",
-    "url": "https://codeberg.org/xjix/relax-async-utils"
+    "type": "fossil",
+    "url": "https://source.sunshinegardens.org/xjix/relax-js/async-utils"
   },
   "keywords": [
     "async",
