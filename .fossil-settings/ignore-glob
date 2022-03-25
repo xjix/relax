@@ -1,3 +1,6 @@
 async-utils/node_modules/*
 async-utils/*.d.ts
 async-utils/*.js
+db/node_modules/*
+db/*.d.ts
+db/*.js

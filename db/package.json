@@ -1,0 +1,39 @@
+{
+  "name": "@relax/db",
+  "version": "0.0.1",
+  "description": "offline-first db",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build && npm run build:doc",
+    "test": "jest --coverage",
+    "build:doc": "jsdoc2md --configure ./jsdoc2md.json --template README.hbs --files src/*.ts > README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://codeberg.org/xjix/relax-ts-template"
+  },
+  "author": "r14c@xj-ix.luxe",
+  "license": "Unlicense",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.4.5",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-to-markdown": "^7.1.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@types/json-stable-stringify": "^1.0.34",
+    "@types/pouchdb": "^6.4.0",
+    "json-stable-stringify": "^1.0.1",
+    "lodash": "^4.17.21",
+    "pouchdb": "^7.2.2",
+    "pouchdb-find": "^7.2.2",
+    "pouchdb-server": "^4.2.0"
+  }
+}
