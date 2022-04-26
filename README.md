@@ -24,5 +24,29 @@ relax.js to your impending scenario.
 
 ## using relax in your application
 
-idk a place
+* [map/reduce](https://pouchdb.com/api.html#query_database)
+* [mango](https://pouchdb.com/guides/mango-queries.html)
+
+```
+// queries/my-query.ts
+import { relaxQuery } from 'https://heropunch.io/xjix/relax-js/doc/tip/db/query.ts'
+export default relaxQuery({
+	views: {
+		myView: {
+			query: ``,
+			variables: {},
+			map(doc) {},
+			reduce(docs) {}
+		}
+	},
+	resolve(query, variables) {
+		// resolve queries
+		return this.$graphql(ENDPOINT, query, variables)
+	},
+	update() {
+		// accept webhook update event
+	},
+	storage: {},
+}
+```
 
