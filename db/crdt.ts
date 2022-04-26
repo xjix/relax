@@ -1,12 +1,15 @@
-import isArray from 'lodash/isArray'
-import isEqual from 'lodash/isEqual'
-import isNil from 'lodash/isNil'
-import isObject from 'lodash/isObject'
-import clone from '@relax/async-utils/clone'
-import mergeWith from 'lodash/mergeWith'
-import stringify from 'json-stable-stringify'
-import tail from 'lodash/tail'
-import transform from 'lodash/transform'
+import { jsonStringify } from 'https://deno.land/x/stable_stringify@v0.2.1/jsonStringify.ts'
+
+import {
+  isArray,
+  isEqual,
+  isNil,
+  isObject,
+  clone,
+  mergeWith,
+  tail,
+  transform
+} from 'https://deno.land/x/lodash@4.17.19/lodash.js'
 
 /**
  * replace all values in an object with `null`. used to generate the ORSet for
@@ -64,14 +67,14 @@ const observedRemoveDiff = (base, object) => {
  * @param {Object} b
  * @returns {Boolean}
  */
-export const diff = (a, b) => stringify(a) !== stringify(b)
+export const diff = (a, b) => jsonStringify(a) !== jsonStringify(b)
 
 /**
  * @param {Object} base
  * @param {...Object} checkpoints
  * @returns {Object}
  */
-export default function () {
+export function Crdt() {
   const base = arguments[0]
   const diffs = tail(arguments).map((checkpoint) => diff(base, checkpoint))
   const patch = merge({}, ...diffs)

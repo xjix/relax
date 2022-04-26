@@ -4,7 +4,7 @@ import { KV } from './kv.ts'
 // 9p inspired?
 // read, write, walk, create
 
-export default class S3Storage implements KV {
+export class S3Storage implements KV {
   _client: S3Client;
   constructor(keychain) {
     const subchain = keychain.subchain('relax/client/s3')
