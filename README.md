@@ -19,8 +19,8 @@ it doesn't take much. we document a self-hosted setup and vercel here for refern
 together these instructions should provide all of the information you need to adapt
 relax.js to your impending scenario.
 
-* (setup/self-hosted)[./wiki/setup--self-hosted/]
-* (setup/vercel)[./wiki/setup--vercel/]
+* [setup/self-hosted](./wiki/setup--self-hosted/)
+* [setup/vercel](./wiki/setup--vercel/)
 
 ## using relax in your application
 
