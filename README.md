@@ -30,6 +30,7 @@ relax.js to your impending scenario.
 ```
 // queries/my-query.ts
 import { relaxQuery } from 'https://heropunch.io/xjix/relax-js/doc/tip/db/query.ts'
+// https://www.skypack.dev/view/@nact/core
 export default relaxQuery({
 	views: {
 		myView: {
